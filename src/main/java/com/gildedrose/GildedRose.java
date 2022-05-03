@@ -17,30 +17,20 @@ class GildedRose {
     }
 
     private void updateAnItemQuality(Item item) {
-        if (!item.name.equals(AGED_BRIE)
-            && !item.name.equals(BACKSTAGE_PASSES)) {
-            if (item.quality > 0) {
-                if (!item.name.equals(SULFURAS)) {
-                    item.quality = item.quality - 1;
+        if (item.name.equals(AGED_BRIE) || item.name.equals(BACKSTAGE_PASSES)) {
+            computeItemQualityChange(item, 1);
+
+            if (item.name.equals(BACKSTAGE_PASSES)) {
+                if (item.sellIn < 11) {
+                    computeItemQualityChange(item, 1);
+                }
+                if (item.sellIn < 6) {
+                    computeItemQualityChange(item, 1);
                 }
             }
         } else {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
-
-                if (item.name.equals(BACKSTAGE_PASSES)) {
-                    if (item.sellIn < 11) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
-                        }
-                    }
-
-                    if (item.sellIn < 6) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
-                        }
-                    }
-                }
+            if (!item.name.equals(SULFURAS)) {
+                computeItemQualityChange(item, -1);
             }
         }
 
@@ -53,17 +43,25 @@ class GildedRose {
                 if (!item.name.equals(BACKSTAGE_PASSES)) {
                     if (item.quality > 0) {
                         if (!item.name.equals(SULFURAS)) {
-                            item.quality = item.quality - 1;
+                            computeItemQualityChange(item, -1);
                         }
                     }
                 } else {
                     item.quality = item.quality - item.quality;
                 }
             } else {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
+                computeItemQualityChange(item, 1);
             }
         }
+    }
+
+    private void computeItemQualityChange(Item item, int increment) {
+        int newItemQuality = item.quality + increment;
+
+        boolean isInRange = newItemQuality <= 50 && newItemQuality >= 0;
+        if (isInRange) {
+            item.quality = newItemQuality;
+        }
+
     }
 }
