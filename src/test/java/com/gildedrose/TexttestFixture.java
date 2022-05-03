@@ -16,7 +16,7 @@ public class TexttestFixture {
                 new BackStagePasses( 10, 49),
                 new BackStagePasses( 5, 49),
                 // this conjured item does not work properly yet
-                new Item("Conjured Mana Cake", 3, 6) };
+                new Conjured( 3, 6) };
 
         GildedRose app = new GildedRose(items);
 
@@ -39,15 +39,15 @@ public class TexttestFixture {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < days; i++) {
             for (Item item : items) {
-                System.out.println(item);
+                //System.out.println(item);
                 builder.append(item).append(System.getProperty("line.separator"));
             }
-            System.out.println();
+            //System.out.println();
             app.updateQuality();
         }
 
         System.out.println(builder);
-
+        System.out.println("------------------");
 
         String expected= """
             +5 Dexterity Vest, 10, 20
@@ -67,8 +67,12 @@ public class TexttestFixture {
             Backstage passes to a TAFKAL80ETC concert, 14, 21
             Backstage passes to a TAFKAL80ETC concert, 9, 50
             Backstage passes to a TAFKAL80ETC concert, 4, 50
-            Conjured Mana Cake, 2, 5
+            Conjured Mana Cake, 2, 4
             """;
+
+        System.out.println(expected);
+        System.out.println("------------------");
+        System.out.println("------------------");
 
         assertEquals(builder.toString(),expected);
     }
