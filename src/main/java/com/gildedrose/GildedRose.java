@@ -18,13 +18,11 @@ class GildedRose {
     }
 
     private void updateAnItemQuality(Item item) {
-
-        int decrement=item.name.equals(CONJURED)? -2: -1;
-        boolean isItemDecremental=!item.name.equals(AGED_BRIE) && !item.name.equals(BACKSTAGE_PASSES) && !item.name.equals(SULFURAS);
         boolean isItemExpired = item.sellIn < 1;
+        final int decrement = getDecrement(item, isItemExpired);
+        boolean isItemDecremental=!item.name.equals(AGED_BRIE) && !item.name.equals(BACKSTAGE_PASSES) && !item.name.equals(SULFURAS);
 
         if (isItemDecremental) {
-            decrement=isItemExpired? (decrement*2): decrement;
             computeItemQualityChange(item, decrement);
         }
 
@@ -42,13 +40,19 @@ class GildedRose {
                 computeItemQualityChange(item, 1);
             }
             if (isItemExpired) {
-                item.quality = item.quality - item.quality;
+                item.quality = 0;
             }
         }
 
         if (!item.name.equals(SULFURAS)) {
             item.sellIn = item.sellIn - 1;
         }
+    }
+
+    private int getDecrement(Item item, boolean isItemExpired) {
+        int decrement= item.name.equals(CONJURED)? -2: -1;
+        decrement= isItemExpired ? (decrement*2): decrement;
+        return decrement;
     }
 
     private void computeItemQualityChange(Item item, int increment) {
