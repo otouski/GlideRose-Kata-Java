@@ -24,18 +24,13 @@ class GildedRose {
         boolean isItemExpired = item.sellIn < 1;
 
         if (isItemDecremental) {
+            decrement=isItemExpired? (decrement*2): decrement;
             computeItemQualityChange(item, decrement);
-
-            if (isItemExpired) {
-                computeItemQualityChange(item, decrement);
-            }
         }
 
         if (item.name.equals(AGED_BRIE) ) {
-            computeItemQualityChange(item, 1);
-            if (isItemExpired) {
-                computeItemQualityChange(item, 1);
-            }
+            int increment=isItemExpired? 2: 1;
+            computeItemQualityChange(item, increment);
         }
 
         if (item.name.equals(BACKSTAGE_PASSES)) {
