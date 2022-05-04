@@ -7,5 +7,6 @@ public class Sulfuras extends ItemCategory {
 
     @Override
     protected void updateAnItemQuality(Item item) {
+        // It is never sold and quality does not degrade
     }
 }

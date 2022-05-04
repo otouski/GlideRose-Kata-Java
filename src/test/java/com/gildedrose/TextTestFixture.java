@@ -20,7 +20,7 @@ public class TextTestFixture {
 
         GildedRose app = new GildedRose(items);
 
-        int days = 32;
+        int days = 2;
         for (int i = 0; i < days; i++) {
             System.out.println("-------- day " + i + " --------");
             System.out.println("name, sellIn, quality");
@@ -30,7 +30,6 @@ public class TextTestFixture {
             System.out.println();
             app.updateQuality();
         }
-
 
     }
 

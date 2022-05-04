@@ -16,11 +16,6 @@ class GildedRose {
     public void updateQuality() {
         for (Item item : items) {
             ItemCategory.categorize(item).updateAnItemQuality(item);
-//            if(item instanceof AgedBrie || item instanceof BackStagePasses || item instanceof Sulfuras || item instanceof Conjured){
-//
-//            }else{
-//                updateAnItemQuality(item);
-//            }
         }
     }
 

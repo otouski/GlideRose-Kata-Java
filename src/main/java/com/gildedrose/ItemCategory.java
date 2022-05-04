@@ -28,7 +28,20 @@ public class ItemCategory extends Item {
         item.sellIn = item.sellIn - 1;
     }
 
+    protected void increment(Item item) {
+        if(item.quality < 50){
+            item.quality = item.quality + 1;
+        }
+    }
+
+    protected void decrement(Item item) {
+        if(item.quality > 0){
+            item.quality = item.quality - 1;
+        }
+    }
+
     protected void updateAnItemQuality(Item item) {
+        // Method implemented by sub classes
     }
 
 }

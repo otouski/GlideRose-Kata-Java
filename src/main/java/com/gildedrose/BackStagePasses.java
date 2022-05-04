@@ -13,24 +13,16 @@ public class BackStagePasses extends ItemCategory {
     }
 
     private void updateQuality(Item item, boolean isItemExpired) {
-        computeItemQualityChange(item, 1);
+        increment(item);
         if (item.sellIn < 11) {
-            computeItemQualityChange(item, 1);
+            increment(item);
         }
         if (item.sellIn < 6) {
-            computeItemQualityChange(item, 1);
+            increment(item);
         }
         if (isItemExpired) {
             item.quality = 0;
         }
     }
 
-    private void computeItemQualityChange(Item item, int increment) {
-        int newItemQuality = item.quality + increment;
-
-        boolean isInRange = newItemQuality <= 50 && newItemQuality >= 0;
-        if (isInRange) {
-            item.quality = newItemQuality;
-        }
-    }
 }

@@ -5,26 +5,17 @@ public class Conjured extends ItemCategory {
         super(GildedRose.CONJURED,sellIn,quality);
     }
 
+    @Override
     protected void updateAnItemQuality(Item item) {
 
-        boolean isItemExpired = isExpired(item);
-
-        int decrement=-2;
-        decrement= isItemExpired ? (decrement*2): decrement;
-
-        computeItemQualityChange(item, decrement);
+        if(isExpired(item)){
+            decrement(item);
+            decrement(item);
+        }
+        decrement(item);
+        decrement(item);
 
         updateSellIn(item);
     }
-
-    private void computeItemQualityChange(Item item, int increment) {
-        int newItemQuality = item.quality + increment;
-
-        boolean isInRange = newItemQuality <= 50 && newItemQuality >= 0;
-        if (isInRange) {
-            item.quality = newItemQuality;
-        }
-    }
-
 
 }
