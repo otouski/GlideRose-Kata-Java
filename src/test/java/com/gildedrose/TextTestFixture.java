@@ -3,7 +3,6 @@ package com.gildedrose;
 
 public class TextTestFixture {
     public static void main(String[] args) {
-        System.out.println("OMGHAI!");
 
         Item[] items = new Item[] {
                 new Dexterity( 10, 20), //
@@ -17,15 +16,9 @@ public class TextTestFixture {
                 // this conjured item does not work properly yet
                 new Conjured( 3, 6) };
 
-
-
         GildedRose app = new GildedRose(items);
 
-        int days = 32;
-        if (args.length > 0) {
-            days = Integer.parseInt(args[0]) + 1;
-        }
-
+        int days = 10;
         for (int i = 0; i < days; i++) {
             System.out.println("-------- day " + i + " --------");
             System.out.println("name, sellIn, quality");
@@ -35,9 +28,6 @@ public class TextTestFixture {
             System.out.println();
             app.updateQuality();
         }
-
-
-
     }
 
 }

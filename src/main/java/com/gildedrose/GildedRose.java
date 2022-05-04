@@ -15,12 +15,17 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            updateAnItemQuality(item);
+            if(item instanceof AgedBrie){
+                ItemCategory.categorize(item).updateAnItemQuality(item);
+            }else{
+                updateAnItemQuality(item);
+            }
         }
     }
 
     private void updateAnItemQuality(Item item) {
-        boolean isItemExpired = item.sellIn < 1;
+
+        boolean isItemExpired = isExpired(item);
         final int decrement = getDecrement(item, isItemExpired);
         boolean isItemDecremental=!item.name.equals(AGED_BRIE) && !item.name.equals(BACKSTAGE_PASSES) && !item.name.equals(SULFURAS);
 
@@ -40,6 +45,10 @@ class GildedRose {
         if (!item.name.equals(SULFURAS)) {
             item.sellIn = item.sellIn - 1;
         }
+    }
+
+    private boolean isExpired(Item item) {
+        return item.sellIn < 1;
     }
 
     private void updateBackStagePass(Item item, boolean isItemExpired) {
@@ -68,6 +77,6 @@ class GildedRose {
         if (isInRange) {
             item.quality = newItemQuality;
         }
-
     }
+
 }
