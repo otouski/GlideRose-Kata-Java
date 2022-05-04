@@ -1,15 +1,14 @@
 package com.gildedrose;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TexttestFixture {
+public class TextTestFixture {
     public static void main(String[] args) {
-        //System.out.println("OMGHAI!");
+        System.out.println("OMGHAI!");
 
         Item[] items = new Item[] {
-                new Item("+5 Dexterity Vest", 10, 20), //
+                new Dexterity( 10, 20), //
                 new AgedBrie( 2, 0), //
-                new Item("Elixir of the Mongoose", 5, 7), //
+                new Elixir( 5, 7), //
                 new Sulfuras( 0, 80), //
                 new Sulfuras(-1, 80),
                 new BackStagePasses(15, 20),
@@ -17,6 +16,8 @@ public class TexttestFixture {
                 new BackStagePasses( 5, 49),
                 // this conjured item does not work properly yet
                 new Conjured( 3, 6) };
+
+
 
         GildedRose app = new GildedRose(items);
 
