@@ -8,8 +8,14 @@ public class ItemCategory extends Item {
 
 
     public static ItemCategory categorize(Item item) {
-        if (item instanceof AgedBrie) {
+        if (item instanceof AgedBrie ) {
             return new AgedBrie(item.sellIn,item.quality);
+        } else if(item instanceof BackStagePasses){
+            return new BackStagePasses(item.sellIn,item.quality);
+        } else if(item instanceof Sulfuras){
+            return new Sulfuras(item.sellIn,item.quality);
+        } else if(item instanceof Conjured){
+            return new Conjured(item.sellIn,item.quality);
         }
         return  new RegularItem(item.name,item.sellIn,item.quality);
     }

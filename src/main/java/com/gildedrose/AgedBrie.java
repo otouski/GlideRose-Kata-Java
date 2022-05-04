@@ -5,6 +5,7 @@ public class AgedBrie extends ItemCategory {
         super(GildedRose.AGED_BRIE,sellIn,quality);
     }
 
+    @Override
     protected void updateAnItemQuality(Item item) {
 
         boolean isItemExpired = isExpired(item);

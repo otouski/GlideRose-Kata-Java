@@ -1,13 +1,15 @@
 package com.gildedrose;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class TextTestFixture {
     public static void main(String[] args) {
 
         Item[] items = new Item[] {
-                new Dexterity( 10, 20), //
+                new RegularItem(GildedRose.DEXTERITY, 10, 20), //
                 new AgedBrie( 2, 0), //
-                new Elixir( 5, 7), //
+                new RegularItem(GildedRose.ELIXIR,  5, 7), //
                 new Sulfuras( 0, 80), //
                 new Sulfuras(-1, 80),
                 new BackStagePasses(15, 20),
@@ -18,7 +20,7 @@ public class TextTestFixture {
 
         GildedRose app = new GildedRose(items);
 
-        int days = 10;
+        int days = 32;
         for (int i = 0; i < days; i++) {
             System.out.println("-------- day " + i + " --------");
             System.out.println("name, sellIn, quality");
@@ -28,6 +30,8 @@ public class TextTestFixture {
             System.out.println();
             app.updateQuality();
         }
+
+
     }
 
 }
