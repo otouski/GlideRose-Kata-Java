@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import com.gildedrose.items.*;
+
 public class ItemCategory extends Item {
 
     public ItemCategory(String name,int sellIn, int quality) {
@@ -8,7 +10,7 @@ public class ItemCategory extends Item {
 
 
     public static ItemCategory categorize(Item item) {
-        if (item instanceof AgedBrie ) {
+        if (item instanceof AgedBrie) {
             return new AgedBrie(item.sellIn,item.quality);
         } else if(item instanceof BackStagePasses){
             return new BackStagePasses(item.sellIn,item.quality);

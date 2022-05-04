@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.items.AgedBrie;
 import org.junit.jupiter.api.Test;
 
 import static com.gildedrose.Utils.checkItemEqual;

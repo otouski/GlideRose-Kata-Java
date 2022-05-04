@@ -1,6 +1,9 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
-public class RegularItem extends ItemCategory{
+import com.gildedrose.Item;
+import com.gildedrose.ItemCategory;
+
+public class RegularItem extends ItemCategory {
     public RegularItem(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
     }

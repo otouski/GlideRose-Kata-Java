@@ -1,6 +1,8 @@
 package com.gildedrose;
 
 
+import com.gildedrose.items.*;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TextTestFixture {

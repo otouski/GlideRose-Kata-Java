@@ -1,4 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.items;
+
+import com.gildedrose.GildedRose;
+import com.gildedrose.Item;
+import com.gildedrose.ItemCategory;
 
 public class Sulfuras extends ItemCategory {
     public Sulfuras(int sellIn, int quality) {

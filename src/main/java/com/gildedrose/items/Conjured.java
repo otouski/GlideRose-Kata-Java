@@ -1,4 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.items;
+
+import com.gildedrose.GildedRose;
+import com.gildedrose.Item;
+import com.gildedrose.ItemCategory;
 
 public class Conjured extends ItemCategory {
     public Conjured(int sellIn, int quality) {

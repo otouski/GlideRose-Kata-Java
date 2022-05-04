@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.items.Sulfuras;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
