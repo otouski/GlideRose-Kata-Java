@@ -7,10 +7,15 @@ public class AgedBrie extends ItemCategory {
 
     @Override
     protected void updateAnItemQuality(Item item) {
+        // increment quality
         increment(item);
+
+        // increment quality once again if item is expired
         if(isExpired(item)){
             increment(item);
         }
+
+        // update sellIn day
         updateSellIn(item);
     }
 }

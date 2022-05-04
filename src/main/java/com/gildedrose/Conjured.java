@@ -8,13 +8,17 @@ public class Conjured extends ItemCategory {
     @Override
     protected void updateAnItemQuality(Item item) {
 
+        // decrement quality twice
+        decrement(item);
+        decrement(item);
+
+        // decrement quality twice again if item is expired
         if(isExpired(item)){
             decrement(item);
             decrement(item);
         }
-        decrement(item);
-        decrement(item);
 
+        // update sellIn day
         updateSellIn(item);
     }
 

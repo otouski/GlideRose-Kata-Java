@@ -7,10 +7,15 @@ public class RegularItem extends ItemCategory{
 
     protected void updateAnItemQuality(Item item) {
 
+        // decrement quality
+        decrement(item);
+
+        // decrement quality once again if item is expired
         if(isExpired(item)){
             decrement(item);
         }
-        decrement(item);
+
+        // update sellIn days
         updateSellIn(item);
     }
 }
